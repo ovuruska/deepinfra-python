@@ -1,6 +1,9 @@
-from deepinfra.constants import MAX_RETRIES, USER_AGENT, INITIAL_BACKOFF, SUBSEQUENT_BACKOFF
 import time
 import requests
+
+from deepinfra.exceptions import MaxRetriesExceededError
+from deepinfra.constants import MAX_RETRIES, USER_AGENT, INITIAL_BACKOFF, SUBSEQUENT_BACKOFF
+
 
 class DeepInfraClient:
 	max_retries = MAX_RETRIES
@@ -27,13 +30,13 @@ class DeepInfraClient:
 		for attempt in range(self.max_retries + 1):
 			try:
 				response = requests.post(self.url, json=data, headers=headers)
-				response.raise_for_status()  # Will raise exception for 4xx/5xx errors
+				response.raise_for_status()
 				return response
 			except requests.RequestException as error:
 				if attempt < self.max_retries:
 					print(f'Request failed, retrying... Attempt {attempt + 1}/{self.max_retries}')
 					self.backoff_delay(attempt + 1)
 				else:
-					raise error  # Re-throw error on last attempt
+					raise error
 
-		raise Exception('Maximum retries exceeded')
+		raise MaxRetriesExceededError()
