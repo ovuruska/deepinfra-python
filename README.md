@@ -5,10 +5,6 @@
 [![PyPI version](https://badge.fury.io/py/deepinfra.svg)](https://pypi.org/project/deepinfra/)
 [![Python Version](https://img.shields.io/pypi/pyversions/deepinfra.svg)](https://pypi.org/project/deepinfra/)
 [![License](https://img.shields.io/github/license/ovuruska/deepinfra-python.svg)](LICENSE)
-![PyPI - Downloads (daily)](https://img.shields.io/pypi/dd/deepinfra)
-![PyPI - Downloads (weekly)](https://img.shields.io/pypi/dw/deepinfra)
-![PyPI - Downloads (monthly)](https://img.shields.io/pypi/dm/deepinfra)
-![PyPI - Downloads (all time)](https://img.shields.io/pypi/dt/deepinfra)
 
 # deepinfra
 
