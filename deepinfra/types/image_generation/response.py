@@ -3,7 +3,7 @@ from typing import Optional, List, Dict
 
 
 
-@dataclass
+@dataclass(kw_only=True)
 class InferenceStatus:
     status: str
     runtime_ms: int
@@ -11,11 +11,11 @@ class InferenceStatus:
     tokens_generated: Optional[int] = None
     tokens_input: Optional[int] = None
 
-@dataclass
+@dataclass(kw_only=True)
 class Metrics:
     predict_time: int
 
-@dataclass
+@dataclass(kw_only=True)
 class ImageGenerationResponse:
     request_id: str
     inference_status: InferenceStatus

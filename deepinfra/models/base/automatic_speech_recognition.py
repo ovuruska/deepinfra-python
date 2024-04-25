@@ -14,9 +14,6 @@ class AutomaticSpeechRecognition(BaseModel):
 	"""
 	def __init__(self, endpoint: str, auth_token: str = None):
 		super().__init__(endpoint, auth_token)
-		self.endpoint = endpoint
-		self.auth_token = auth_token
-
 
 	def generate(self, body: AutomaticSpeechRecognitionRequest) -> AutomaticSpeechRecognitionResponse:
 		"""

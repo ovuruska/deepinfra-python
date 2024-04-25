@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Optional
 
 
-@dataclass
+@dataclass(kw_only=True)
 class AutomaticSpeechRecognitionRequest:
 	audio: str
 	task: Optional[str]

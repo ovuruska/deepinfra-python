@@ -22,7 +22,7 @@ class FormDataUtils:
 
 		for key, value in data.items():
 			if key in blob_keys:
-				body[key] = (key,ReadStreamUtils.get_read_stream(value))
+				body[key] = (key, ReadStreamUtils.get_read_stream(value))
 			else:
 				body[key] = json.dumps(value)
 
