@@ -1,14 +1,18 @@
 from typing import List
 
+from dataclasses import dataclass
+
 from deepinfra.types.common.inference_status import InferenceStatus
 
 
+@dataclass
 class AutomaticSpeechRecognitionWord:
 	text: str
 	start: int
 	end: int
 	confidence: float
 
+@dataclass
 class AutomaticSpeechRecognitionSegment:
 	id: int
 	seek: int
@@ -23,6 +27,7 @@ class AutomaticSpeechRecognitionSegment:
 	confidence: float
 	words: List[AutomaticSpeechRecognitionWord]
 
+@dataclass
 class AutomaticSpeechRecognitionResponse:
 	text: str
 	segments: List[AutomaticSpeechRecognitionSegment]
