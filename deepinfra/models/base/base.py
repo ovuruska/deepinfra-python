@@ -19,19 +19,20 @@ class BaseModel:
 		self.auth_token = auth_token or self._get_auth_token_from_env() or self._warn_about_missing_api_key()
 		self.client = DeepInfraClient(self.endpoint, self.auth_token)
 
-	"""
-	Fetches the API key from the environment.
-	@return: The API key.
-	"""
 	def _get_auth_token_from_env(self):
+		"""
+		Fetches the API key from the environment.
+		@return: The API key.
+		"""
 		self.auth_token = os.getenv("DEEPINFRA_API_KEY")
 		return self.auth_token
 
-	"""
-	Warns the user about the missing API key.
-	@return: An empty string.
-	"""
+
 	def _warn_about_missing_api_key(self):
+		"""
+		Warns the user about the missing API key.
+		@return: An empty string.
+		"""
 		if not self.auth_token:
 			print("Warning: No API key provided. Please provide an API key to authenticate your requests.")
 		return ""

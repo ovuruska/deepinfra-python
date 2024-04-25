@@ -15,13 +15,18 @@ class DeepInfraClient:
 		self.url = url
 		self.auth_token = auth_token
 
-
 	def backoff_delay(self, attempt):
 		delay = self.initial_backoff if attempt == 1 else self.subsequent_backoff
 		time.sleep(delay)
 
-
 	def post(self, data, config=None):
+		"""
+		Performs a POST request.
+		Config can be used to pass additional parameters to the request.
+		:param data:
+		:param config:
+		:return:
+		"""
 		if config is None:
 			config = {}
 		config_headers = config.get('headers', {})

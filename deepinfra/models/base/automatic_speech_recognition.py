@@ -17,13 +17,14 @@ class AutomaticSpeechRecognition(BaseModel):
 		self.endpoint = endpoint
 		self.auth_token = auth_token
 
-	"""
-	Generates the automatic speech recognition response.
-	@param body: The request body.
-	@return: The response.
-	
-	"""
+
 	def generate(self, body: AutomaticSpeechRecognitionRequest) -> AutomaticSpeechRecognitionResponse:
+		"""
+		Generates the automatic speech recognition response.
+		@param body: The request body.
+		@return: The response.
+
+		"""
 
 		form_data = FormDataUtils.get_form_data(body,blob_keys=["audio"])
 		response = self.client.post(form_data,{

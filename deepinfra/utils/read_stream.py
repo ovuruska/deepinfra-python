@@ -4,7 +4,7 @@ import requests
 
 class ReadStreamUtils:
     """
-    Utility class for working with images.
+    Utility class for working with files.
     """
 
     @staticmethod

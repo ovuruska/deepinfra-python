@@ -6,9 +6,18 @@ from deepinfra.utils.read_stream import ReadStreamUtils
 
 
 class FormDataUtils:
+	"""
+	Utilities for creating form data.
+
+	"""
 	@staticmethod
 	def get_form_data(data, blob_keys=()):
-
+		"""
+		Creates a MultipartEncoder object from the data.
+		:param data:
+		:param blob_keys:
+		:return:
+		"""
 		body = {}
 
 		for key, value in data.items():
