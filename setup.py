@@ -4,7 +4,7 @@ setup(
 	name='deepinfra',
 	version='0.1.0',
 	author='Oguz Vuruskaner',
-	author_email='oguzvuruskaner@gmaikl.com',
+	author_email='oguzvuruskaner@gmail.com',
 	description='Unofficial Python wrapper for the DeepInfra Inference API',
 	long_description=open('README.md').read(),
 	long_description_content_type='text/markdown',
