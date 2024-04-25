@@ -21,15 +21,14 @@ class DeepInfraClient:
 		time.sleep(delay)
 
 
-	def post(self, data, headers=None):
-		if headers is None:
-			headers = {}
-		headers.update(
-			{'Content-Type': 'application/json', 'Authorization': f'Bearer {self.auth_token}', 'User-Agent': USER_AGENT})
-
+	def post(self, data, config=None):
+		if config is None:
+			config = {}
+		config_headers = config.get('headers', {})
+		headers = {'content-type': 'application/json', **config_headers, 'User-Agent': USER_AGENT,  'Authorization': f'Bearer {self.auth_token}'}
 		for attempt in range(self.max_retries + 1):
 			try:
-				response = requests.post(self.url, json=data, headers=headers)
+				response = requests.post(self.url, data=data, headers=headers)
 				response.raise_for_status()
 				return response
 			except requests.RequestException as error:

@@ -1,2 +1,4 @@
 from .base import BaseModel
 from .image_generation import ImageGenerationBaseModel
+from .text_embedding import TextEmbeddingBaseModel
+from .automatic_speech_recognition import AutomaticSpeechRecognition
