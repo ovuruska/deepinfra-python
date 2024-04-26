@@ -1,7 +1,4 @@
 from deepinfra.models.base import BaseModel
-from deepinfra.types.automatic_speech_recognition.request import (
-    AutomaticSpeechRecognitionRequest,
-)
 from deepinfra.types.automatic_speech_recognition.response import (
     AutomaticSpeechRecognitionResponse,
 )
@@ -20,9 +17,7 @@ class AutomaticSpeechRecognition(BaseModel):
     def __init__(self, endpoint: str, auth_token: str = None):
         super().__init__(endpoint, auth_token)
 
-    def generate(
-        self, body: AutomaticSpeechRecognitionRequest
-    ) -> AutomaticSpeechRecognitionResponse:
+    def generate(self, body) -> AutomaticSpeechRecognitionResponse:
         """
         Generates the automatic speech recognition response.
         @param body: The request body.

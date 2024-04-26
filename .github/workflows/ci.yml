@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.7, 3.9, 3.12]
+        python-version: [3.7, 3.9, 3.11]
 
     steps:
       - name: Checkout code
@@ -34,4 +34,4 @@ jobs:
 
       - name: Run lint check
         run: |
-          black --check --verbose deepinfra
+          black --check --verbose  deepinfra

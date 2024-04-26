@@ -1,4 +1,4 @@
-from deepinfra.models.base.base import BaseModel
+from .base import BaseModel
 
 
 class ImageGeneration(BaseModel):
