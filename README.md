@@ -16,3 +16,26 @@ To install `deepinfra`, run the following command:
 
 ```bash
 pip install deepinfra
+```
+
+## Examples
+
+### Use Automatic Speech Recognition
+
+You can use the Automatic Speech Recognition (ASR) API to transcribe audio files, URLs and buffer objects.
+#### Transcribe an audio file
+
+```python
+from deepinfra import AutomaticSpeechRecognition
+
+model_name = "openai/whisper-base"
+asr = AutomaticSpeechRecognition(model_name)
+
+file_path = "path/to/audio/file" 
+body = {
+    "audio": file_path
+}
+transcription = asr.generate(body)
+print(transcription)
+```
+

@@ -15,21 +15,25 @@ class DeepInfraClient:
 		self.url = url
 		self.auth_token = auth_token
 
-
 	def backoff_delay(self, attempt):
 		delay = self.initial_backoff if attempt == 1 else self.subsequent_backoff
 		time.sleep(delay)
 
-
-	def post(self, data, headers=None):
-		if headers is None:
-			headers = {}
-		headers.update(
-			{'Content-Type': 'application/json', 'Authorization': f'Bearer {self.auth_token}', 'User-Agent': USER_AGENT})
-
+	def post(self, data, config=None):
+		"""
+		Performs a POST request.
+		Config can be used to pass additional parameters to the request.
+		:param data:
+		:param config:
+		:return:
+		"""
+		if config is None:
+			config = {}
+		config_headers = config.get('headers', {})
+		headers = {'content-type': 'application/json', **config_headers, 'User-Agent': USER_AGENT,  'Authorization': f'Bearer {self.auth_token}'}
 		for attempt in range(self.max_retries + 1):
 			try:
-				response = requests.post(self.url, json=data, headers=headers)
+				response = requests.post(self.url, data=data, headers=headers)
 				response.raise_for_status()
 				return response
 			except requests.RequestException as error:
