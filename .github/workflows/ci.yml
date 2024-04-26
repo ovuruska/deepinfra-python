@@ -32,25 +32,6 @@ jobs:
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
 
-      - name: Install GitHub CLI
+      - name: Run lint check
         run: |
-          sudo apt update
-          sudo apt install -y gh
-
-      - name: Authenticate GitHub CLI
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "${GITHUB_TOKEN}" | gh auth login --with-token
-
-      - name: Lint with Black
-        id: black_check
-        continue-on-error: true
-        run: |
-          result=$(black --check . 2>&1)
-          echo "::set-output name=result::$result"
-
-      - name: Post results as comment
-        if: steps.black_check.outcome == 'failure'
-        run: |
-          gh pr comment "${{ github.event.pull_request.number }}" --body "Black formatting check failed:\n```\n${{ steps.black_check.outputs.result }}\n```"
+          black --check .

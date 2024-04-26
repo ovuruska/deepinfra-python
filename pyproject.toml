@@ -1,0 +1,26 @@
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''(
+    /(
+        \.eggs/
+        | \.git/
+        | \.hg/
+        | \.mypy_cache/
+        | \.tox/
+        | \.venv/
+        | _build/
+        | buck-out/
+        | build/
+        | dist/
+        | node_modules/
+    )
+    | setup\.py
+    | conftest\.py
+    | pytest_\w+\.py
+    | \b__init__\.py
+    | typing\.py
+)'''
+skip-string-normalization = true
+indent = '    '
