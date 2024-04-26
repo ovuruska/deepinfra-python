@@ -1,4 +1,4 @@
-from deepinfra.models import BaseModel
+from deepinfra.models.base import BaseModel
 
 
 class TextToImage(BaseModel):
