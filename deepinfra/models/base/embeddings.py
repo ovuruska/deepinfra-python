@@ -1,18 +1,18 @@
 from deepinfra.models.base import BaseModel
-from deepinfra.types.text_generation.request import TextGenerationRequest
-from deepinfra.types.text_generation.response import TextGenerationResponse
+from deepinfra.types.embeddings.request import EmbeddingsRequest
+from deepinfra.types.embeddings.response import EmbeddingsResponse
 
 
-class TextGeneration(BaseModel):
+class Embeddings(BaseModel):
     def __init__(self, endpoint: str, auth_token: str):
         super().__init__(endpoint, auth_token)
         self.endpoint = endpoint
         self.auth_token = auth_token
 
-    def generate(self, body: TextGenerationRequest) -> TextGenerationResponse:
+    def generate(self, body: EmbeddingsRequest) -> EmbeddingsResponse:
         try:
             response = self.client.post(body)
             return response
         except Exception as error:
-            print("Error generating text:", error)
+            print("Error generating embeddings:", error)
             raise error
