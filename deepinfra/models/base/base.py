@@ -1,3 +1,6 @@
+"""
+    Base class for all models.
+"""
 import os
 
 from deepinfra.clients import DeepInfraClient
@@ -9,7 +12,7 @@ class BaseModel:
     """
     Base class for all models
     @param endpoint: The endpoint of the model or the model name.
-    @param auth_token: The API key to authenticate the requests. If not provided, it will be fetched from the environment.
+    @param auth_token: The API key to authenticate the requests.
     """
 
     def __init__(self, endpoint, auth_token: str = None):
@@ -39,6 +42,7 @@ class BaseModel:
         """
         if not self.auth_token:
             print(
-                "Warning: No API key provided. Please provide an API key to authenticate your requests."
+                "Warning: No API key provided. "
+                "Please provide an API key to authenticate your requests."
             )
         return ""

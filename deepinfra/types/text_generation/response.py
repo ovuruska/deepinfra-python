@@ -1,13 +1,7 @@
 from dataclasses import dataclass
-from typing import List, Optional, Dict
+from typing import List
 
-
-@dataclass(kw_only=True)
-class InferenceStatus:
-    status: str
-    runtime_ms: int
-    cost: float
-    tokens_generated: int
+from deepinfra.types.common.inference_status import InferenceStatus
 
 
 @dataclass(kw_only=True)

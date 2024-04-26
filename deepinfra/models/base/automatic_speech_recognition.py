@@ -1,3 +1,6 @@
+"""
+The automatic speech recognition model.
+"""
 from deepinfra.models.base import BaseModel
 from deepinfra.types.automatic_speech_recognition.response import (
     AutomaticSpeechRecognitionResponse,
@@ -10,7 +13,7 @@ class AutomaticSpeechRecognition(BaseModel):
     """
     Initializes the automatic speech recognition model.
     @param endpoint: The endpoint of the model or the model name.
-    @param auth_token: The API key to authenticate the requests. If not provided, it will be fetched from the environment.
+    @param auth_token: The API key to authenticate the requests.
     @docs Check the available models at https://deepinfra.com/models/automatic-speech-recognition
     """
 

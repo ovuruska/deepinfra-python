@@ -1,4 +1,4 @@
-from .base import BaseModel
+from deepinfra.models import BaseModel
 
 
 class ImageGeneration(BaseModel):
@@ -22,9 +22,5 @@ class ImageGeneration(BaseModel):
         :return:
         """
         body = {"input": input}
-        try:
-            response = self.client.post(body)
-            return response
-        except Exception as error:
-            print("Error generating image:", error)
-            raise error
+        response = self.client.post(body)
+        return response
