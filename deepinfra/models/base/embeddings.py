@@ -8,7 +8,6 @@ class Embeddings(BaseModel):
     @docs Check the available models at https://deepinfra.com/models/embeddings
     """
 
-
     def generate(self, body: EmbeddingsRequest) -> EmbeddingsResponse:
         """
         Generates embeddings.

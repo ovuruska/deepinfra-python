@@ -1,6 +1,7 @@
 """
     Base class for all models.
 """
+
 import os
 from typing import Union
 

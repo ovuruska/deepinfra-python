@@ -2,6 +2,7 @@
     This module contains the TextGeneration class,
     which is the base class for all text generation models.
 """
+
 from typing import Union
 
 from deepinfra.models.base import BaseModel
