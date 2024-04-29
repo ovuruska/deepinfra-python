@@ -38,4 +38,4 @@ jobs:
 
       - name: Run type check
         run: |
-          mypy --install-types deepinfra
+          mypy --install-types deepinfra --non-interactive --verbose
