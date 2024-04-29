@@ -39,3 +39,7 @@ jobs:
       - name: Run lint check
         run: |
           black --check --verbose deepinfra
+
+      - name: Run unit tests
+        run: |
+          pytest tests
