@@ -15,7 +15,6 @@ class TextGeneration(BaseModel):
     @docs Check the available models at https://deepinfra.com/models/text-generation
     """
 
-
     def generate(self, body: TextGenerationRequest) -> TextGenerationResponse:
         """
         Generates text.
