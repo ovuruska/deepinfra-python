@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Optional, List
 
 
-@dataclass(kw_only=True)
+@dataclass
 class EmbeddingStatus:
     status: str
     runtime_ms: int
@@ -11,7 +11,7 @@ class EmbeddingStatus:
     tokens_input: int
 
 
-@dataclass(kw_only=True)
+@dataclass
 class EmbeddingsResponse:
     embeddings: List[List[float]]
     input_tokens: int

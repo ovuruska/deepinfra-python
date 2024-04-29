@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from deepinfra.types.common.inference_status import InferenceStatus
 
 
-@dataclass(kw_only=True)
+@dataclass
 class AutomaticSpeechRecognitionWord:
     text: str
     start: int
@@ -13,7 +13,7 @@ class AutomaticSpeechRecognitionWord:
     confidence: float
 
 
-@dataclass(kw_only=True)
+@dataclass
 class AutomaticSpeechRecognitionSegment:
     id: int
     seek: int
@@ -29,7 +29,7 @@ class AutomaticSpeechRecognitionSegment:
     words: List[AutomaticSpeechRecognitionWord]
 
 
-@dataclass(kw_only=True)
+@dataclass
 class AutomaticSpeechRecognitionResponse:
     text: str
     segments: List[AutomaticSpeechRecognitionSegment]

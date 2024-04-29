@@ -2,8 +2,8 @@ from dataclasses import dataclass
 from typing import Optional
 
 
-@dataclass(kw_only=True)
-class ImageGenerationRequest:
+@dataclass
+class TextToImageRequest:
     prompt: str
     negative_prompt: Optional[str] = None
     image: Optional[str] = None

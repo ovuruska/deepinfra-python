@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 from typing import Optional, List, Dict
 
 
-@dataclass(kw_only=True)
+@dataclass
 class TextGenerationRequest:
     input: str
     stream: Optional[bool] = None

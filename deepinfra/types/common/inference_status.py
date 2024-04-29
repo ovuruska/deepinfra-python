@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-@dataclass(kw_only=True)
+@dataclass
 class InferenceStatus:
     status: str
     runtime_ms: int
@@ -10,7 +10,7 @@ class InferenceStatus:
     tokens_input: int
 
 
-@dataclass(kw_only=True)
+@dataclass
 class Status:
     UNKNOWN = "unknown"
     QUEUED = "queued"

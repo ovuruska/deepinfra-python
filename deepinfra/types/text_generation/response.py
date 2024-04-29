@@ -4,12 +4,12 @@ from typing import List
 from deepinfra.types.common.inference_status import InferenceStatus
 
 
-@dataclass(kw_only=True)
+@dataclass
 class GeneratedText:
     generated_text: str
 
 
-@dataclass(kw_only=True)
+@dataclass
 class TextGenerationResponse:
     request_id: str
     inference_status: InferenceStatus
