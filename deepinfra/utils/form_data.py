@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Optional
 
 from requests_toolbelt import MultipartEncoder
 
@@ -12,7 +12,7 @@ class FormDataUtils:
     """
 
     @staticmethod
-    def get_form_data(data, blob_keys: Union[List[str], None] = None):
+    def get_form_data(data, blob_keys: Optional[List[str]] = None):
         """
         Creates a MultipartEncoder object from the data.
         :param data:
