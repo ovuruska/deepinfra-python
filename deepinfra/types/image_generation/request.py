@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Optional
 
 
-@dataclass(kw_only=True)
+@dataclass
 class ImageGenerationRequest:
     prompt: str
     negative_prompt: Optional[str] = None

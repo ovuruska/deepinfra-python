@@ -4,12 +4,12 @@ from typing import Optional, List, Dict
 from deepinfra.types.common.inference_status import InferenceStatus
 
 
-@dataclass(kw_only=True)
+@dataclass
 class Metrics:
     predict_time: int
 
 
-@dataclass(kw_only=True)
+@dataclass
 class ImageGenerationResponse:
     request_id: str
     inference_status: InferenceStatus

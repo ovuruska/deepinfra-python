@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Optional, List
 
 
-@dataclass(kw_only=True)
+@dataclass
 class EmbeddingsRequest:
     inputs: List[str]
     normalize: Optional[bool] = None
