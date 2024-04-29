@@ -1,4 +1,5 @@
 from deepinfra.models.base import BaseModel
+from deepinfra.types.text_to_image import TextToImageResponse
 
 
 class TextToImage(BaseModel):
@@ -15,4 +16,4 @@ class TextToImage(BaseModel):
         """
         body = {"input": input}
         response = self.client.post(body)
-        return response
+        return TextToImageResponse(**response.json())

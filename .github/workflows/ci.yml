@@ -32,10 +32,10 @@ jobs:
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
 
-      - name: Run lint check
-        run: |
-          black --check --verbose deepinfra
-
       - name: Run type check
         run: |
           mypy --install-types deepinfra --non-interactive --verbose
+
+      - name: Run lint check
+        run: |
+          black --check --verbose deepinfra

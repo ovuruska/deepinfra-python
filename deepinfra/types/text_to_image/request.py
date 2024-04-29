@@ -3,7 +3,7 @@ from typing import Optional
 
 
 @dataclass
-class ImageGenerationRequest:
+class TextToImageRequest:
     prompt: str
     negative_prompt: Optional[str] = None
     image: Optional[str] = None

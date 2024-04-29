@@ -8,11 +8,11 @@ class Embeddings(BaseModel):
     @docs Check the available models at https://deepinfra.com/models/embeddings
     """
 
-    def generate(self, body: EmbeddingsRequest) -> EmbeddingsResponse:
+    def generate(self, body) -> EmbeddingsResponse:
         """
         Generates embeddings.
         :param body:
         :return:
         """
         response = self.client.post(body)
-        return response
+        return EmbeddingsResponse(**response.json())

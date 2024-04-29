@@ -16,11 +16,11 @@ class TextGeneration(BaseModel):
     @docs Check the available models at https://deepinfra.com/models/text-generation
     """
 
-    def generate(self, body: TextGenerationRequest) -> TextGenerationResponse:
+    def generate(self, body: dict) -> TextGenerationResponse:
         """
         Generates text.
         :param body:
         :return:
         """
         response = self.client.post(body)
-        return response
+        return TextGenerationResponse(**response.json())

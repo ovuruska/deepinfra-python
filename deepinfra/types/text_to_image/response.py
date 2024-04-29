@@ -10,7 +10,7 @@ class Metrics:
 
 
 @dataclass
-class ImageGenerationResponse:
+class TextToImageResponse:
     request_id: str
     inference_status: InferenceStatus
     input: Dict

@@ -12,7 +12,7 @@ class FormDataUtils:
     """
 
     @staticmethod
-    def get_form_data(data, blob_keys: Optional[List[str]] = None):
+    def get_form_data(data: dict, blob_keys: Optional[List[str]] = None):
         """
         Creates a MultipartEncoder object from the data.
         :param data:
