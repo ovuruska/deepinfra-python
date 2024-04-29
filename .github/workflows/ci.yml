@@ -38,5 +38,4 @@ jobs:
 
       - name: Run type check
         run: |
-          mypy --install-types
-          mypy deepinfra
+          mypy --install-types deepinfra
