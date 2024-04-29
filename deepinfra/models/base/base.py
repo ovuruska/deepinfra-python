@@ -17,7 +17,7 @@ class BaseModel:
     @param auth_token: The API key to authenticate the requests.
     """
 
-    def __init__(self, endpoint, auth_token: Union[str | None] = None):
+    def __init__(self, endpoint, auth_token: Union[str, None] = None):
         if URLUtils.is_valid_url(endpoint):
             self.endpoint = endpoint
         else:
