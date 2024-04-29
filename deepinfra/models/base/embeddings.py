@@ -15,4 +15,4 @@ class Embeddings(BaseModel):
         :return:
         """
         response = self.client.post(body)
-        return EmbeddingsResponse(**response.json())
+        return response.json()

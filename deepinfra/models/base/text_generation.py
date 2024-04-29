@@ -23,4 +23,4 @@ class TextGeneration(BaseModel):
         :return:
         """
         response = self.client.post(body)
-        return TextGenerationResponse(**response.json())
+        return response.json()
