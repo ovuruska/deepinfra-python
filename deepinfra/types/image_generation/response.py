@@ -1,19 +1,13 @@
 from dataclasses import dataclass
 from typing import Optional, List, Dict
 
+from deepinfra.types.common.inference_status import InferenceStatus
 
-
-@dataclass(kw_only=True)
-class InferenceStatus:
-    status: str
-    runtime_ms: int
-    cost: float
-    tokens_generated: Optional[int] = None
-    tokens_input: Optional[int] = None
 
 @dataclass(kw_only=True)
 class Metrics:
     predict_time: int
+
 
 @dataclass(kw_only=True)
 class ImageGenerationResponse:
