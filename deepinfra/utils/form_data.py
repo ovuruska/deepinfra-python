@@ -1,4 +1,4 @@
-import json
+from typing import List, Union
 
 from requests_toolbelt import MultipartEncoder
 
@@ -12,19 +12,21 @@ class FormDataUtils:
     """
 
     @staticmethod
-    def get_form_data(data, blob_keys=()):
+    def get_form_data(data, blob_keys: Union[List[str] | None] = None):
         """
         Creates a MultipartEncoder object from the data.
         :param data:
         :param blob_keys:
         :return:
         """
+        if blob_keys is None:
+            blob_keys = list()
         body = {}
 
         for key, value in data.items():
             if key in blob_keys:
                 body[key] = (key, ReadStreamUtils.get_read_stream(value))
             else:
-                body[key] = json.dumps(value)
+                body[key] = value
 
         return MultipartEncoder(fields=body)

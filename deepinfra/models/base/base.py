@@ -2,6 +2,7 @@
     Base class for all models.
 """
 import os
+from typing import Union
 
 from deepinfra.clients import DeepInfraClient
 from deepinfra.constants.client import ROOT_URL
@@ -15,7 +16,7 @@ class BaseModel:
     @param auth_token: The API key to authenticate the requests.
     """
 
-    def __init__(self, endpoint, auth_token: str = None):
+    def __init__(self, endpoint, auth_token: Union[str | None] = None):
         if URLUtils.is_valid_url(endpoint):
             self.endpoint = endpoint
         else:

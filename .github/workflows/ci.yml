@@ -35,3 +35,8 @@ jobs:
       - name: Run lint check
         run: |
           black --check --verbose deepinfra
+
+      - name: Run type check
+        run: |
+          mypy --install-types
+          mypy deepinfra
