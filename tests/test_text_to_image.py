@@ -3,20 +3,18 @@ from unittest.mock import patch
 
 from deepinfra import TextToImage
 
+model_name = "CompVis/stable-diffusion-v1-4"
+api_key = "API KEY"
+
 
 class TestTextToImage(unittest.TestCase):
     @patch("requests.post")
     def test_generate(self, mock_post):
         mock_post.return_value.status_code = 200
-        mock_post.return_value.json.return_value = {
-            "image": "image data"
-        }
-        model_name = "CompVis/stable-diffusion-v1-4"
-        api_key = "API KEY"
+        mock_post.return_value.json.return_value = {"image": "image data"}
+
         text_to_image = TextToImage(model_name, api_key)
-        body = {
-            "text": "Hello, World!"
-        }
+        body = {"text": "Hello, World!"}
         response = text_to_image.generate(body)
 
         called_args, called_kwargs = mock_post.call_args
