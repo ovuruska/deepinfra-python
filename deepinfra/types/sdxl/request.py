@@ -1,5 +1,3 @@
-from typing import Optional
-
 from dataclasses import dataclass
 
 from deepinfra.types.text_to_image import TextToImageRequest
