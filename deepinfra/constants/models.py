@@ -1,0 +1,1 @@
+SDXL = "stability-ai/sdxl"

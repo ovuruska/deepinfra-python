@@ -1,5 +1,4 @@
 from typing import List
-
 from dataclasses import dataclass
 
 from deepinfra.types.common.inference_status import InferenceStatus

@@ -1,1 +1,2 @@
 from .client import MAX_RETRIES, USER_AGENT, INITIAL_BACKOFF, SUBSEQUENT_BACKOFF
+from .models import SDXL
