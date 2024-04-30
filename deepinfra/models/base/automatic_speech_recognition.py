@@ -26,4 +26,4 @@ class AutomaticSpeechRecognition(BaseModel):
         response = self.client.post(
             form_data, {"headers": {"content-type": form_data.content_type}}
         )
-        return AutomaticSpeechRecognitionResponse(**response.json())
+        return response.json()

@@ -16,4 +16,4 @@ class TextToImage(BaseModel):
         """
         body = {"input": input}
         response = self.client.post(body)
-        return TextToImageResponse(**response.json())
+        return response.json()
