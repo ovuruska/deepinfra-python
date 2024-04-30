@@ -59,7 +59,7 @@ print(transcription["text"])
 
 ```python
 from deepinfra import Sdxl
-import base64
+import requests
 
 model = Sdxl()
 body = {
@@ -69,10 +69,11 @@ body = {
 }
 resp = model.generate(body)
 image = resp["images"][0]
-image = image.replace("data:image/png;base64,", "")
+image_url = resp["output"][0]
 
-with open("image.png", "wb") as fp:
-    fp.write(base64.b64decode(image))
+# Write image_url to image.png
+with open("image.png", "wb") as file:
+    file.write(requests.get(image_url).content)
 
 ```
 
