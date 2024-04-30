@@ -2,3 +2,4 @@ black==23.3.0
 mypy
 types-requests
 coverage
+pytest
