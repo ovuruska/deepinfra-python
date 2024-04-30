@@ -3,6 +3,7 @@
     which is the base class for all text generation models.
 """
 
+import json
 from typing import Union
 
 from deepinfra.models.base import BaseModel
@@ -16,11 +17,11 @@ class TextGeneration(BaseModel):
     @docs Check the available models at https://deepinfra.com/models/text-generation
     """
 
-    def generate(self, body: dict) -> TextGenerationResponse:
+    def generate(self, body: dict):
         """
         Generates text.
         :param body:
         :return:
         """
-        response = self.client.post(body)
+        response = self.client.post(json.dumps(body))
         return response.json()

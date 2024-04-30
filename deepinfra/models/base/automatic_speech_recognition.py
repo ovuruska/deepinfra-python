@@ -14,7 +14,7 @@ class AutomaticSpeechRecognition(BaseModel):
     @docs Check the available models at https://deepinfra.com/models/automatic-speech-recognition
     """
 
-    def generate(self, body) -> AutomaticSpeechRecognitionResponse:
+    def generate(self, body):
         """
         Generates the automatic speech recognition response.
         @param body: The request body.

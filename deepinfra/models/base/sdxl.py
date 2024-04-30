@@ -2,10 +2,8 @@ import json
 
 from black import Optional
 
-from deepinfra import BaseModel
+from deepinfra.models.base import BaseModel
 from deepinfra.constants import SDXL
-from deepinfra.types.sdxl.request import SdxlRequest
-from deepinfra.types.sdxl.response import SdxlResponse
 
 
 class Sdxl(BaseModel):
@@ -17,7 +15,7 @@ class Sdxl(BaseModel):
     def __init__(self, api_token: Optional[str] = None):
         super().__init__(SDXL, api_token)
 
-    def generate(self, body: dict) -> SdxlResponse:
+    def generate(self, body: dict):
         """
         Generates an image.
         :param input:
