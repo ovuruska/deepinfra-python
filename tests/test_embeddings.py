@@ -1,3 +1,4 @@
+import json
 import unittest
 from unittest.mock import patch
 
@@ -24,9 +25,9 @@ class TestEmbeddings(unittest.TestCase):
         called_args, called_kwargs = mock_post.call_args
         url = called_args[0]
         header = called_kwargs["headers"]
-        body = called_kwargs["data"]
+        data = called_kwargs["data"]
 
         self.assertEqual(url, f"https://api.deepinfra.com/v1/inference/{model_name}")
-        self.assertEqual(body, '{"text": "Hello, World!"}')
+        self.assertEqual(data, json.dumps(body))
         self.assertEqual(response.embeddings, [1, 2, 3])
         self.assertEqual(header["Authorization"], f"Bearer {api_key}")
