@@ -13,16 +13,9 @@ class Metrics:
 class TextToImageResponse:
     request_id: str
     inference_status: InferenceStatus
-    input: Dict
-    output: List[str]
-    id: str
-    started_at: str
-    completed_at: str
-    logs: str
-    status: str
-    metrics: Metrics
-    webhook_events_filter: List[str]
-    output_file_prefix: str
+    images: List[str]
+    nsfw_content_detected: bool
+    seed: str
     version: Optional[str] = None
     created_at: Optional[str] = None
     error: Optional[str] = None

@@ -11,7 +11,15 @@ class TestAutomaticSpeechRecognition(unittest.TestCase):
     @patch("requests.post")
     def test_generate(self, mock_post):
         mock_post.return_value.status_code = 200
-        mock_post.return_value.json.return_value = {"text": "Hello, World!"}
+        mock_post.return_value.json.return_value = {
+            "text": "Hello, World!",
+            "segments": [{"start": 0, "end": 1, "text": "Hello"}],
+            "language": "en",
+            "input_length_ms": 1000,
+            "request_id": "123",
+            "inference_status": None,
+        }
+
         audio_data = b"audio data"
         asr = AutomaticSpeechRecognition(model_name, api_key)
         body = {"audio": audio_data}
@@ -24,4 +32,4 @@ class TestAutomaticSpeechRecognition(unittest.TestCase):
         called_headers = called_kwargs["headers"]
         self.assertEqual(called_headers["Authorization"], f"Bearer {api_key}")
 
-        self.assertEqual(response["text"], "Hello, World!")
+        self.assertEqual(response.text, "Hello, World!")

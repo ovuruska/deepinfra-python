@@ -11,7 +11,17 @@ class TestTextToImage(unittest.TestCase):
     @patch("requests.post")
     def test_generate(self, mock_post):
         mock_post.return_value.status_code = 200
-        mock_post.return_value.json.return_value = {"image": "image data"}
+        images = ["image data"]
+
+        mock_post.return_value.json.return_value = {
+            "request_id": "123",
+            "inference_status": None,
+            "images": images,
+            "nsfw_content_detected": False,
+            "seed": "seed",
+            "version": "1.0",
+            "created_at": "2022-01-01",
+        }
 
         text_to_image = TextToImage(model_name, api_key)
         body = {"text": "Hello, World!"}
@@ -22,5 +32,5 @@ class TestTextToImage(unittest.TestCase):
         header = called_kwargs["headers"]
         self.assertEqual(url, f"https://api.deepinfra.com/v1/inference/{model_name}")
 
-        self.assertEqual(response["image"], "image data")
+        self.assertEqual(response.images, images)
         self.assertEqual(header["Authorization"], f"Bearer {api_key}")

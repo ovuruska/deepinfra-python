@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List
+from typing import List, Optional
 
 from deepinfra.types.common.inference_status import InferenceStatus
 
@@ -11,7 +11,6 @@ class GeneratedText:
 
 @dataclass
 class TextGenerationResponse:
-    request_id: str
     inference_status: InferenceStatus
     results: List[GeneratedText]
     num_tokens: int
