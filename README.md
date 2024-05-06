@@ -36,6 +36,23 @@ body = {
     "audio": file_path
 }
 transcription = asr.generate(body)
-print(transcription)
+print(transcription["text"])
 ```
+
+#### Transcribe an audio URL
+
+```python
+from deepinfra import AutomaticSpeechRecognition
+
+model_name = "openai/whisper-base"
+asr = AutomaticSpeechRecognition(model_name)
+
+url = "https://path/to/audio/file"
+body = {
+    "audio": url
+}
+transcription = asr.generate(body)
+print(transcription["text"])
+```
+
 

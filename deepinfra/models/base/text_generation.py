@@ -3,6 +3,7 @@
     which is the base class for all text generation models.
 """
 
+import json
 from typing import Union
 
 from deepinfra.models.base import BaseModel
@@ -22,5 +23,5 @@ class TextGeneration(BaseModel):
         :param body:
         :return:
         """
-        response = self.client.post(body)
+        response = self.client.post(json.dumps(body))
         return TextGenerationResponse(**response.json())
