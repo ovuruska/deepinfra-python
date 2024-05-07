@@ -9,7 +9,7 @@ class Embeddings(BaseModel):
     @docs Check the available models at https://deepinfra.com/models/embeddings
     """
 
-    def generate(self, body) -> EmbeddingsResponse:
+    def generate(self, body):
         """
         Generates embeddings.
         :param body:

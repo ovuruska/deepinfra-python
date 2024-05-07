@@ -16,6 +16,7 @@ class TextToImage(BaseModel):
         :param input:
         :return:
         """
+
         body = {"input": input}
         response = self.client.post(json.dumps(input))
         return TextToImageResponse(**response.json())

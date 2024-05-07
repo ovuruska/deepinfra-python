@@ -4,10 +4,8 @@
 """
 
 import json
-from typing import Union
 
 from deepinfra.models.base import BaseModel
-from deepinfra.types.text_generation.request import TextGenerationRequest
 from deepinfra.types.text_generation.response import TextGenerationResponse
 
 
