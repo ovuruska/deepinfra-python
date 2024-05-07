@@ -10,12 +10,13 @@ class TextToImage(BaseModel):
     @docs Check the available models at https://deepinfra.com/models/text-to-image
     """
 
-    def generate(self, body: dict):
+    def generate(self, input) -> TextToImageResponse:
         """
         Generates an image.
         :param input:
         :return:
         """
 
-        response = self.client.post(json.dumps(body))
-        return response.json()
+        body = {"input": input}
+        response = self.client.post(json.dumps(input))
+        return TextToImageResponse(**response.json())
